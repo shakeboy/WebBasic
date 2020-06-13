@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML标签</title>
+<!--    <base href="http://www.baidu.com">-->
+<!--    <base target="_blank">-->
+    <style>
+        body{
+            background-color: blueviolet;
+        }
+        h2{
+            color: brown;
+        }
+    </style>
+</head>
+<body>
+<!--联系部分-->
+<h2>一、a开头</h2>
+1.a:<a href="http://www.baidu.com">百度</a> <br>
+2.abbr:<abbr title="我在里面，可以充当提示信息">shakeboy</abbr> <br>
+3.acronym:<acronym title="类似于abbr,在HTML5中已经被废弃">shakeboy</acronym> <br>
+4.address:<address>
+    Written by <a href="mailto:webmaster@example.com">Donald Duck</a>.<br>
+    Visit us at:<br>
+    Example.com<br>
+    Box 564, Disneyland<br>
+    USA
+</address>
+<br>
+5.applet:<applet code="Bubbles.class" width="350" height="350">
+    Java applet that draws animated bubbles.在HTML5中用object代替
+</applet>
+<br>
+6.object:<object classid="clsid:F08DF954-8592-11D1-B16A-00C0F0283628" id="Slider1"
+                 width="100" height="50">
+    <param name="BorderStyle" value="1" />
+    <param name="MousePointer" value="0" />
+    <param name="Enabled" value="1" />
+    <param name="Min" value="0" />
+    <param name="Max" value="10" />
+</object>
+<br>
+7.area(定义图形区域，总嵌套在map中):<img src="planets.jpg" border="0" usemap="#planetmap" alt="Planets" />
+
+<map name="planetmap" id="planetmap">
+    <area shape="circle" coords="180,139,14" href ="venus.html" alt="Venus" />
+    <area shape="circle" coords="129,161,10" href ="mercur.html" alt="Mercury" />
+    <area shape="rect" coords="0,0,110,260" href ="sun.html" alt="Sun" />
+</map>
+<br>
+8.article(定义文章):<article>
+    <h1>Internet Explorer 9</h1>
+    <p>Windows Internet Explorer 9（简称 IE9）于 2011 年 3 月 14 日发布.....</p>
+</article>
+<br>
+9.aside(内容应该与附近的内容相关):<p>Me and my family visited The Epcot center this summer.</p>
+<aside>
+    <h4>Epcot Center</h4>
+    The Epcot Center is a theme park in Disney World, Florida.
+</aside>
+<br>
+10.audio(定义声音):
+<audio src="../music/双飞燕.wav" controls></audio>
+<hr color="red">
+ <h2>二、b开头</h2>
+1.b(定义粗体字): <b>我是粗体字</b><br>
+2.base（默认地址）:
+<a href="">默认base作用</a><br>
+3.basefont(默认字体):<basefont>:被废弃 <br>
+4.bdi(定义文本方向): <bdi><ul>
+    <li>Username <bdi dir="rtl">Bill</bdi>:80 points</li>
+    <li>Username <bdi>Steve</bdi>: 78 points</li>
+</ul></bdi>
+<br>
+5.bdo(可覆盖默认的文本方向):<bdo dir="rtl">文本方向</bdo><br>
+6.big(大号字体): <big>大号字体，已经被废弃，但是使用标签的时候还是要小心，因为浏览器总是很宽大地试图去理解各种标签，对于那些不支持标签的浏览器来说，它经常将其认为是粗体字标签。</big><br>
+7.blockquote(长标记引用):<blockquote>
+    Here is a long quotation here is a long quotation here is a long quotation
+    here is a long quotation here is a long quotation here is a long quotation
+    here is a long quotation here is a long quotation here is a long quotation.
+</blockquote>
+<br>
+8.body:body 元素定义文档的主体。
+body 元素包含文档的所有内容（比如文本、超链接、图像、表格和列表等等。）
+<br>
+9.br:换行 <br>
+10.button:按钮 <button>点击我有惊喜</button>
+<br>
+<script>
+    let btn = document.getElementsByTagName("button")[0];
+    btn.onclick = function(){
+        alert("我被点击了");
+    }
+</script>
+<hr color="red">
+<h2>三、c开头</h2>
+1.canvas: 标签定义图形，比如图表和其他图像。它只是图形容器，您必须使用脚本来绘制图形。
+<canvas id="draw"></canvas>
+<script>
+    let canvas=document.getElementById('draw');
+    let ctx=canvas.getContext('2d');
+    ctx.fillStyle='#FF0000';
+    ctx.fillRect(0,0,80,100);
+</script>
+<br>
+2.caption(定义表格标题):<table border="1">
+    <caption>Monthly savings</caption>
+    <tr>
+        <th>Month</th>
+        <th>Savings</th>
+    </tr>
+    <tr>
+        <td>January</td>
+        <td>$100</td>
+    </tr>
+</table>
+<br>
+3.center(居中): <center>水平居中文本</center>
+<br>
+4.cite(通常表示它所包含的文本对某个参考文献的引用，比如书籍或者杂志的标题。): <cite>HTML5</cite><br>
+5.code:<br> <img src="../images/code.png" alt="用法"><br>
+6.col(定义列元素):<table width="100%" border="2">
+    <col align="center">
+    <col align="left" />
+    <col align="right" />
+    <tr>
+        <th>ISBN</th>
+        <th>Title</th>
+        <th>Price</th>
+    </tr>
+    <tr>
+        <td>3476896</td>
+        <td>My first HTML</td>
+        <td>$53</td>
+    </tr>
+</table>
+<br>
+7.colgroup:<br>
+<img src="../images/colgroup.png" alt="colgroup">
+<table width="100%" border="1">
+    <colgroup span="2" align="left"></colgroup>
+    <colgroup align="right" style="color:#0000FF;"></colgroup>
+    <tr>
+        <th>ISBN</th>
+        <th>Title</th>
+        <th>Price</th>
+    </tr>
+    <tr>
+        <td>3476896</td>
+        <td>My first HTML</td>
+        <td>$53</td>
+    </tr>
+</table>
+<br>
+8.command:可以定义命令按钮，比如单选按钮、复选框或按钮。<br>
+只有当 command 元素位于 menu 元素内时，该元素才是可见的。否则不会显示这个元素，但是可以用它规定键盘快捷键。<br>
+<span style="color: red">只有 Internet Explorer 9 （更早或更晚的版本都不支持）支持command标签。</span><br>
+<menu>
+    <command onclick="alert('Hello World')">
+        Click Me!</command>
+</menu>
+<br>
+<hr color="red">
+<br>
+<h2>四、d开头</h2>
+1.datalist:定义选项列表。请与 input 元素配合使用该元素，来定义 input 可能的值。
+datalist 及其选项不会被显示出来，它仅仅是合法的输入值列表。
+<input id="myCar" list="cars" />
+<datalist id="cars">
+    <option value="BMW">
+    <option value="Ford">
+    <option value="Volvo">
+</datalist>
+<br>
+2.dd:在定义列表中定义条目的定义部分 <br>
+<dl>
+    <dt>计算机</dt>
+    <dd>用来计算的仪器 ... ...</dd>
+    <dt>显示器</dt>
+    <dd>以视觉方式显示信息的装置 ... ...</dd>
+</dl>
+3.del:a dozen is <del>20</del> 12 pieces <br>
+4.details:用于描述文档或文档某个部分的细节<details>
+    <summary>Copyright 2011.</summary>
+    <p>All pages and graphics on this web site are the property of W3School.</p>
+</details>
+<br>
+5.dialog
+<dialog open>对话框</dialog>
+<br>
+<table border="1">
+    <tr>
+        <th>一月</th>
+        <th>二月</th>
+        <th>三月</th>
+    </tr>
+    <tr>
+        <td>31</td>
+        <td>28</td>
+        <td>31</td>
+    </tr>
+</table>
+6.dir:目录列表<dir>
+    <li>HTML</li>
+    <li>XHTML</li>
+    <li>CSS</li>
+</dir>
+7.div:块级元素
+<div id="firstDiv">盒子</div>
+8.dl:定义列表：<dl>
+    <dt>计算机</dt>
+    <dd>用来计算的仪器 ... ...</dd>
+    <dt>显示器</dt>
+    <dd>以视觉方式显示信息的装置 ... ...</dd>
+</dl>
+9.dt:列表的具体项目
+<hr color="red">
+<h2>五、e开头</h2>
+1.em:强调内容 <em>shakeboy</em> <br>
+2.embed:插件内容
+<embed src="" type="">
+<hr color="red">
+<h2>六、f开头</h2>
+1.fieldset(将表单内的相关元素分组,legend定义标题):<form>
+    <fieldset>
+        <legend>health information</legend>
+        height: <input type="text" />
+        weight: <input type="text" />
+    </fieldset>
+</form>
+2.figcaption:定义 figure 元素的标题（caption）。figure 标签规定独立的流内容（图像、图表、照片、代码等等）。元素的内容应该与主内容相关，但如果被删除，则不应对文档流产生影响
+<figure>
+    <figcaption>网易云音乐</figcaption>
+    <img src="../images/beauty.png" width="350" height="234" />
+</figure>
+<br>
+3.font: <font color="red" size="45px">字体</font> <br>
+4.footer: <footer>
+    <p>Posted by: W3School</p>
+    <p>Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.</p>
+</footer>
+<br>
+5.form标签
+<form action="#" method="get">
+    <p>First name: <label>姓名：
+        <input type="text" name="fname" />
+    </label></p>
+    <p>Last name: <label>姓氏：
+        <input type="text" name="lname" />
+    </label></p>
+    <input type="submit" value="Submit" />
+</form>
+6.frame
+1、frame不能脱离frameSet单独使用，iframe可以；
+2、frame不能放在body中；
+<div style="width: 1000px;height: 900px;background-color: aqua">
+    <frameset cols="25%,50%,25%">
+
+        <frame src="02.HTML标签.html">
+        <frame src="01.网页基本结构.html">
+        <frame src="02.HTML标签.html">
+
+    </frameset>
+</div>
+<hr color="red">
+<h2>七、h开头</h2>
+1.标题h1-h6:
+<h1>标题一</h1>
+<h2>标题二</h2>
+<h3>标题三</h3>
+<h4>标题四</h4>
+<h5>标题五</h5>
+<h6>标题六</h6>
+2.head头部 <br>
+3.header对头部的介绍 <br>
+<header>
+    <h1>Welcome to my homepage</h1>
+    <p>My name is Donald Duck</p>
+</header>
+
+<p>The rest of my home page...</p>
+4.hr:一条线 <br>
+5.html:标志一个HTML文档（doctype 元素必须位于 html 元素之前）
+<hr color="red">
+<h2>八、i开头</h2>
+1.显示斜体文本效果：以斜体字（italic）或者倾斜（oblique）字体显示。如果这种斜体字对该浏览器不可用的话，可以使用高亮、反白或加下划线等样式。<br>
+<i>显示斜体文本效果</i> <br>
+2.iframe:iframe 元素会创建包含另外一个文档的内联框架（即行内框架）。 <br>
+<iframe src="01.网页基本结构.html" frameborder="0"></iframe>
+<br>
+3.iframe实现菜单切换<br>
+    <a href="http://123.57.204.153:8080/stu_mana_war_exploded/" target="iframe_syz">我的网址</a>
+<iframe name="iframe_syz" frameborder="0" width="800px" height="800px"></iframe>
+<br>
+4.img:<img src="../images/beauty.png" alt="美化"> <br>
+5.input：输入 <input type="text"> <br>
+6.ins:a dozen is <del>20</del> <ins>12</ins> pieces <br>
+<hr color="red">
+<h2>九、k开头</h2>
+1.kbd: <kbd>quit</kbd> <br>
+2.keygen: <form action="demo_keygen.asp" method="get">
+    Username: <input type="text" name="usr_name" />
+    Encryption: <keygen name="security" />
+    <input type="submit" />
+</form>
+<br>
+<hr color="red">
+<h2>十、l开头</h2>
+1.label
+2.legend
+3.li
+4.link
+<hr color="red">
+<h2>十一、m开头</h2>
+1.main:
+<p>定义和用法
+标签规定文档的主要内容。
+元素中的内容对于文档来说应当是唯一的。它不应包含在文档中重复出现的内容，比如侧栏、导航栏、版权信息、站点标志或搜索表单。
+注释：在一个文档中，不能出现一个以上的元素。元素不能是以下元素的后代：article、aside、footer、header 或 nav。
+</p>
+<main>
+    <h1>Web Browsers</h1>
+    <p>Google Chrome、Firefox 以及 Internet Explorer 是目前最流行的浏览器。</p>
+
+    <article>
+        <h1>Google Chrome</h1>
+        <p>Google Chrome 是由 Google 开发的一款免费的开源 web 浏览器，于 2008 年发布。</p>
+    </article>
+
+    <article>
+        <h1>Internet Explorer</h1>
+        <p>Internet Explorer 由微软开发的一款免费的 web 浏览器，发布于 1995 年。</p>
+    </article>
+
+    <article>
+        <h1>Mozilla Firefox</h1>
+        <p>Firefox 是一款来自 Mozilla 的免费开源 web 浏览器，发布于 2004 年。</p>
+    </article>
+</main>
+<br>
+2.map
+3.mark
+4.menu
+5.menuitem <br>
+6.meta
+设置网页的一些基本元数据，字符集，关键字，简介<br>
+7.meter
+<hr>
+<h2>十二、n开头</h2>
+1.nav
+2.noframes
+3.noscript
+4.object
+5.ol
+6.optgroup
+7.option
+8.output
+9.p
+10.param
+11.pre
+12.progress
+13.q
+14.rp
+15.rt
+16.ruby
+17.s
+18.samp
+19.script
+20.section
+21.select
+22.small
+23.source
+24.span
+25.strike
+26.strong
+27.style
+28.sub
+29.summmary
+30.sup
+31.table
+32.tbody
+33.td
+34.textarea
+35.tfoot
+36.th
+37.thead
+38.time
+39.title
+40.tr
+41.track
+42.tt
+43.u
+44.ul
+45.var <br>
+46.video
+<video src="../video/easy.wmv" controls></video>
+<br>
+47.wbr
+
+</body>
+</html>
