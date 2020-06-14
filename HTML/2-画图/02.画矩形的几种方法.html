@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绘制图形</title>
+    <script>
+        window.onload = function(){
+            //获取画布对象canvas
+            let my_canvas = document.getElementById("my_canvas");
+            //获取画布的2d对象,开始绘制
+            let ctx = my_canvas.getContext('2d');
+            //开始绘制，填充矩形
+            ctx.fillRect(10,10,150,50);
+            //清除指定矩形区域，让清除部分完全透明
+            ctx.clearRect(20,20,40,20);
+            //绘制一个矩形的边框
+            ctx.strokeStyle = 'red';
+            ctx.strokeRect(10,100,150,50);
+            //通过路径绘制
+            ctx.beginPath();
+            ctx.moveTo(170,40);
+            ctx.lineTo(180,10);
+            ctx.lineTo(180,60);
+            ctx.lineTo(200,30);
+            ctx.fill();
+            //绘制笑脸
+            ctx.beginPath();
+            ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // 绘制
+            ctx.moveTo(110, 75);
+            ctx.arc(75, 75, 35, 0, Math.PI, false);   // 口(顺时针)
+            ctx.moveTo(65, 65);
+            ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // 左眼
+            ctx.moveTo(95, 65);
+            ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // 右眼
+            ctx.stroke();
+        }
+    </script>
+</head>
+<body>
+<!--注意: 如果你绘制出来的图像是扭曲的, 尝试用width和height属性为<canvas>明确规定宽高，而不是使用CSS。-->
+    <canvas id="my_canvas" width="1000px" height="800px" style="background-color:pink;"></canvas>
+</body>
+</html>
