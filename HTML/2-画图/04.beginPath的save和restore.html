@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas id="test" width="800px" height="400px" style="background-color: paleturquoise"></canvas>
+</body>
+<script>
+    window.onload = function(){
+        let elementById = document.getElementById("test");
+        if(!elementById.getContext) return;
+        let ctx = elementById.getContext('2d');
+        // //默认颜色：black
+        // ctx.lineWidth = 10;
+        // ctx.strokeStyle = "red";
+        // //矩形边框
+        // ctx.strokeRect(10,10,100,100);
+        //
+        // //默认颜色：black
+        // ctx.lineWidth = 20;
+        // ctx.strokeStyle = "green";
+        // ctx.strokeRect(120,10,100,100);
+
+        ctx.lineWidth = 20;
+        ctx.strokeStyle = "yellow";
+        ctx.moveTo(10,10);
+        ctx.lineTo(100,10);
+        ctx.stroke();//绘制
+
+        //防止前面设置被影响，开始新的绘制
+        ctx.beginPath();
+        ctx.lineWidth = 10;
+        ctx.strokeStyle = "green";
+        ctx.moveTo(10,100);
+        ctx.lineTo(100,100);
+        ctx.stroke();//绘制
+
+    };
+</script>
+</html>

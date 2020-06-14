@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>translate</title>
+</head>
+<body>
+
+<canvas id="test" width="800px" height="400px" style="background-color: paleturquoise"></canvas>
+</body>
+<script>
+    window.onload = function(){
+        let elementById = document.getElementById("test");
+        if(!elementById.getContext) return;
+        let ctx = elementById.getContext('2d');
+
+        ctx.translate(100,100);//把画板的起始点坐标移动了100px
+        ctx.strokeRect(0,0,50,50);
+        ctx.translate(-100,-100);
+        ctx.strokeRect(0,0,50,50);
+    };
+</script>
+</html>

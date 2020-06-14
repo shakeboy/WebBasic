@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绘制曲线</title>
+</head>
+<body>
+
+<canvas id="test" width="800px" height="400px" style="background-color: paleturquoise"></canvas>
+<img src="../images/quadraticCurveTo.png" alt="三次贝塞尔曲线">
+</body>
+<script>
+    window.onload = function(){
+        let elementById = document.getElementById("test");
+        if(!elementById.getContext) return;
+        let ctx = elementById.getContext('2d');
+
+        ctx.moveTo(50,50);//开始点
+        ctx.bezierCurveTo(200,50,400,200,600,20);
+        //参数一：控制点1的横坐标
+        //参数二：控制点1的纵坐标
+        //参数三：控制点2的横坐标
+        //参数四：控制点2的纵坐标
+        //参数五：结束点的横坐标
+        //参数六：结束点的纵坐标
+        ctx.stroke();//绘制
+    };
+</script>
+</html>

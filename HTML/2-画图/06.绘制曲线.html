@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绘制曲线</title>
+</head>
+<body>
+
+<canvas id="test" width="800px" height="400px" style="background-color: paleturquoise"></canvas>
+</body>
+<script>
+    window.onload = function(){
+        let elementById = document.getElementById("test");
+        if(!elementById.getContext) return;
+        let ctx = elementById.getContext('2d');
+        <!-- 1.绘制圆形 -->
+        ctx.save();
+        ctx.lineWidth = 10;
+        ctx.strokeStyle = 'pink';
+        ctx.moveTo(10,10);
+        ctx.arc(100,100,50,0,Math.PI,true);//参数一：开始横坐标 参数二：开始纵坐标 参数三：半径 参数四：开始角度 参数五：结束角度 参数六：方向，默认顺时针
+        ctx.stroke();//绘制
+        ctx.restore();
+
+        ctx.beginPath();
+        ctx.lineWidth = 50;
+        ctx.strokeStyle = "red";
+        ctx.arc(200,200,50,0,2*Math.PI,true);
+        ctx.stroke();//绘制
+    };
+</script>
+</html>

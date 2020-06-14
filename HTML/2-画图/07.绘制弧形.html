@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绘制曲线</title>
+</head>
+<body>
+
+<canvas id="test" width="800px" height="400px" style="background-color: paleturquoise"></canvas>
+<img src="../images/arcto.png" alt="arcto图片讲解">
+</body>
+<script>
+    window.onload = function(){
+        let elementById = document.getElementById("test");
+        if(!elementById.getContext) return;
+        let ctx = elementById.getContext('2d');
+
+        ctx.moveTo(50,50);//开始点
+        ctx.arcTo(200,50,200,200,150);
+        //参数一：控制点的横坐标
+        //参数二：控制点的纵坐标
+        //参数三：结束点的横坐标
+        //参数四：结束点的横坐标
+        ctx.lineTo(200,200);
+        ctx.stroke();//绘制
+    };
+</script>
+</html>
