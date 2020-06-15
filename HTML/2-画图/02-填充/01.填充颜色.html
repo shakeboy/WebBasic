@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>填充颜色</title>
+</head>
+<body>
+<canvas id="mc" width="400" height="280"
+        style="border:1px solid black"></canvas>
+</body>
+<script>
+    // 获取canvas元素对应的DOM对象
+    let canvas = document.getElementById('mc');
+    // 获取在canvas上绘图的CanvasRenderingContext2D对象
+    let ctx = canvas.getContext('2d');
+
+    ctx.fillStyle = 'red';
+    ctx.shadowColor = "yellow";//模糊颜色
+    ctx.shadowBlur = 10;//模糊级别
+    //模糊偏移
+    ctx.shadowOffsetX = 10;
+    ctx.shadowOffsetY = 20;
+    ctx.rect(10,10,50,50);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(60,60);
+    ctx.bezierCurveTo(60,100,100,20,200,45);
+    ctx.strokeStyle = "pink";
+    ctx.stroke();
+</script>
+</html>

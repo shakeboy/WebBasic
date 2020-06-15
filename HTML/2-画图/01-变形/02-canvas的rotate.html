@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rotate</title>
+</head>
+<body>
+
+<canvas id="test" width="800" height="800" style="background-color: paleturquoise"></canvas>
+</body>
+<script>
+    window.onload = function(){
+        let elementById = document.getElementById("test");
+        if(!elementById.getContext) return;
+        let ctx = elementById.getContext('2d');
+
+        ctx.translate(200,200);
+        /*
+            旋转角度，以弧度计。
+            如需将角度转换为弧度，请使用 degrees*Math.PI/180 公式进行计算。
+            举例：如需旋转 5 度，可规定下面的公式：5*Math.PI/180。
+         */
+        ctx.rotate(45*Math.PI/180);//angle旋转画布
+        ctx.strokeRect(100,100,200,200);
+        //translate会累加效应
+    };
+</script>
+</html>

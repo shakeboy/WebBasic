@@ -1,14 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<frameset cols="25%,50%,25%">
+<html>
+<body>
 
-    <frame src="../1-HTML基础知识/02.HTML标签.html">
-    <frame src="../1-HTML基础知识/01.网页基本结构.html">
-    <frame src="../1-HTML基础知识/02.HTML标签.html">
+<p>要用到的图片：</p>
+<img src="../images/image-20200612082357331.png" id="lamp" style="width: 10px;height: 10px"/>
+<p>Canvas:</p>
 
-</frameset>
+<button onclick="draw('repeat')">Repeat</button>
+<button onclick="draw('repeat-x')">Repeat-x</button>
+<button onclick="draw('repeat-y')">Repeat-y</button>
+<button onclick="draw('no-repeat')">No-repeat</button>
+
+<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+    Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script type="text/javascript">
+    function draw(direction)
+    {
+        let c=document.getElementById("myCanvas");
+        let ctx=c.getContext("2d");
+        ctx.clearRect(0,0,c.width,c.height);
+        let img = new Image();
+        img.src = 'https://mdn.mozillademos.org/files/222/Canvas_createpattern.png';
+        let pat=ctx.createPattern(img,direction);
+        ctx.rect(0,0,150,100);
+        ctx.fillStyle=pat;
+        ctx.fill();
+    }
+</script>
+
+</body>
 </html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>开始和结束端点的样式</title>
+</head>
+<body>
+    <canvas id="my_canvas" width="800" height="800" style="background-color: aqua"></canvas>
+    <br>
+</body>
+<script>
+    let my_canvas = document.getElementById("my_canvas");
+    let ctx = my_canvas.getContext('2d');
+    //lineCap开始和结束端点的形状
+    /*
+        butt 默认。向线条的每个末端添加平直的边缘。
+        round 向线条的每个末端添加圆形线帽。
+        square 向线条的每个末端添加正方形线帽。
+     */
+    ctx.lineCap = "butt";//butt|round|square
+    ctx.lineWidth = 20;
+    ctx.moveTo(10,10);
+    ctx.lineTo(25,69);
+    ctx.lineTo(125,169);
+    ctx.lineTo(255,60);
+    ctx.stroke();
+
+
+</script>
+</html>

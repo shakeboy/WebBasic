@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>填充颜色</title>
+</head>
+<body>
+<canvas id="mc" width="400" height="280"
+        style="border:1px solid black"></canvas>
+<br>
+<img src="../../images/线性渐变.png" alt="" id="img">
+</body>
+<script>
+    // 获取canvas元素对应的DOM对象
+    let canvas = document.getElementById('mc');
+    // 获取在canvas上绘图的CanvasRenderingContext2D对象
+    let ctx = canvas.getContext('2d');
+    let img = new Image();
+    img.src = 'https://mdn.mozillademos.org/files/222/Canvas_createpattern.png';
+    let pattern = ctx.createPattern(img,"repeat");
+
+    ctx.rect(0,0,100,100);
+    ctx.fillStyle = pattern;
+    ctx.fill();
+
+</script>
+</html>

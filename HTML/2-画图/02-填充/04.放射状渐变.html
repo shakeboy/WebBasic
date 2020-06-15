@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>填充颜色</title>
+</head>
+<body>
+<canvas id="mc" width="400" height="280"
+        style="border:1px solid black"></canvas>
+<br>
+<img src="../../images/放射性渐变.png" alt="">
+<br>
+</body>
+<script>
+    // 获取canvas元素对应的DOM对象
+    let canvas = document.getElementById('mc');
+    // 获取在canvas上绘图的CanvasRenderingContext2D对象
+    let ctx = canvas.getContext('2d');
+
+    let canvasGradient = ctx.createRadialGradient(75,50,5,90,60,100);
+    canvasGradient.addColorStop(0,"pink");
+    canvasGradient.addColorStop(0.5,"black");
+    canvasGradient.addColorStop(1,"blue");
+    ctx.fillStyle = canvasGradient;
+    ctx.rect(0,0,200,200);
+    ctx.fill();
+</script>
+</html>

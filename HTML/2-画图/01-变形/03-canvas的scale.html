@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>translate</title>
+</head>
+<body>
+
+<canvas id="test" width="800px" height="800px" style="background-color: paleturquoise"></canvas>
+</body>
+<script>
+    window.onload = function(){
+        let elementById = document.getElementById("test");
+        if(!elementById.getContext) return;
+        let ctx = elementById.getContext('2d');
+
+
+        ctx.scale(1,1)//横向纵向缩放,像素的改变，当前像素点大小的改变，画布像素不变，个数不变和大小补充改变
+        ctx.strokeRect(100,100,120,200);
+        ctx.save();
+        ctx.scale(2,2);
+        ctx.strokeStyle = "red";
+        ctx.strokeRect(100,100,120,200);
+        ctx.restore();
+
+        //translate会累加效应
+    };
+</script>
+</html>

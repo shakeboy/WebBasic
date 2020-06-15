@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>填充颜色</title>
+</head>
+<body>
+<canvas id="mc" width="400" height="280"
+        style="border:1px solid black"></canvas>
+<br>
+<img src="../../images/线性渐变.png" alt="">
+</body>
+<script>
+    // 获取canvas元素对应的DOM对象
+    let canvas = document.getElementById('mc');
+    // 获取在canvas上绘图的CanvasRenderingContext2D对象
+    let ctx = canvas.getContext('2d');
+
+    //线性渐变
+    //例一
+    let grd=ctx.createLinearGradient(0,0,170,0);
+    grd.addColorStop(0,"red");
+
+    grd.addColorStop(0.5,"white");
+    grd.addColorStop(1,'black');
+    ctx.fillStyle = grd;
+    ctx.fillRect(20,20,150,100);
+
+    //例二
+    ctx.beginPath();
+    let grd1=ctx.createLinearGradient(0,0,170,0);
+    grd1.addColorStop(0,"black");
+    grd1.addColorStop(0.3,"magenta");
+    grd1.addColorStop(0.5,"blue");
+    grd1.addColorStop(0.6,"green");
+    grd1.addColorStop(0.8,"yellow");
+    grd1.addColorStop(1,"red");
+    ctx.fillStyle=grd1;
+    ctx.fillRect(20,180,150,260);
+</script>
+</html>

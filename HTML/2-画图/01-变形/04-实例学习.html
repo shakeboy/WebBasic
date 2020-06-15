@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>旋转缩放</title>
+</head>
+<body>
+<canvas id="test" width="600" height="600" style="background-color: blue;margin: 100px"></canvas>
+</body>
+<script>
+    window.onload = function(){
+        let elementById = document.getElementById("test");
+        if(!elementById.getContext) return;
+        let ctx = elementById.getContext('2d');
+        ctx.translate(300,300);
+        let flag = 10;
+        let scale = 10;
+        //定时器
+        setInterval(function () {
+            ctx.clearRect(-300,-300,elementById.width,elementById.height);
+            ctx.rotate(flag*Math.PI/180);
+            if(scale>0){
+                ctx.scale(scale/10,scale/10);
+                scale = scale -1;
+            }else{
+                scale = -1;
+                ctx.scale(scale/10,scale/10);
+                scale = scale + 1;
+            }
+            flag = flag + 1;
+
+            console.log(scale);
+            console.log("hello"+flag);
+            ctx.fillRect(-100,-100,200,200);
+        },500);
+
+
+    };
+</script>
+</html>

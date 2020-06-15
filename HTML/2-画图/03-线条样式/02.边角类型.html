@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>开始和结束端点的样式</title>
+</head>
+<body>
+    <canvas id="my_canvas" width="800" height="800" style="background-color: aqua"></canvas>
+    <br>
+    <img src="../../images/最大斜接长度.png" alt="">
+</body>
+<script>
+    let my_canvas = document.getElementById("my_canvas");
+    let ctx = my_canvas.getContext('2d');
+    /*
+        bevel 创建斜角。
+        round 创建圆角。
+        miter 默认。创建尖角。
+     */
+    ctx.lineWidth = 20;
+    ctx.lineJoin = "miter";
+    ctx.miterLimit = 2;
+    ctx.moveTo(10,10);
+    ctx.lineTo(25,69);
+    ctx.lineTo(125,169);
+    ctx.lineTo(255,60);
+    ctx.stroke();
+
+
+</script>
+</html>
