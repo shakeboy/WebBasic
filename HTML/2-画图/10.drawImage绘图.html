@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绘图</title>
+</head>
+<body>
+画布：<br>
+<canvas id="test" width="800" height="400" style="background-color: red"></canvas>
+<br>
+图像：<br>
+<img src="../images/quadraticCurveTo.png" alt="" id="img">
+</body>
+<script>
+    window.onload = function(){
+        let elementById = document.getElementById("test");
+        if(!elementById.getContext) return;
+        let ctx = elementById.getContext('2d');
+
+        let img = document.getElementById("img");
+        ctx.drawImage(img,20,20,100,100);
+        ctx.fillStyle = "red";
+    };
+</script>
+</html>

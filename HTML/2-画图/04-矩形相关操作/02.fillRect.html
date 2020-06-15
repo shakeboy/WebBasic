@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="author" content="Yeeku.H.Lee(CrazyIt.org)" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title> 绘制矩形 </title>
+</head>
+<body>
+<h2> 绘制矩形 </h2>
+<canvas id="mc" width="400" height="280"
+        style="border:1px solid black"></canvas>
+<script type="text/javascript">
+    // 获取canvas元素对应的DOM对象
+    let canvas = document.getElementById('mc');
+    // 获取在canvas上绘图的CanvasRenderingContext2D对象
+    let ctx = canvas.getContext('2d');
+    // 设置填充颜色
+
+    ctx.fillRect(10,10,100,100);
+</script>
+</body>
+</html>
