@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>时钟绘制</title>
+    <link rel="icon" href="../../images/arcto.icon">
+    <style type="text/css">
+        canvas{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            background-color: #0000FF;
+            border: 1px solid red;
+
+        }
+    </style>
+</head>
+<body>
+    <canvas id="test" width="800" height="800" style="background-color: paleturquoise"></canvas>
+</body>
+<script>
+    window.onload = function(){
+        let elementById = document.getElementById("test");
+        if(!elementById.getContext) return;
+        let ctx = elementById.getContext('2d');
+        draw();
+        setInterval(function () {
+            //清理画布
+            ctx.clearRect(0,0,elementById.width,elementById.height);
+            draw();
+        },1000);
+        function draw(){
+            ctx.save();
+            //设置默认样式
+            ctx.lineWidth = 20;
+            ctx.strokeStyle = "pink";
+            ctx.lineCap = "round";
+            ctx.translate(400,400);
+            ctx.rotate(-90*Math.PI/180);
+            ctx.beginPath();
+            ctx.arc(0,0,200,0,360*Math.PI/180);
+            ctx.stroke();
+            //时针的刻度
+            ctx.save();
+            for(let i=0;i<12;i++){
+                ctx.lineWidth = 14;
+                ctx.strokeStyle = "yellow";
+                ctx.rotate(30*Math.PI/180);
+                ctx.beginPath();
+                ctx.moveTo(150,0);//画布旋转了90度
+                ctx.lineTo(180,0);
+                ctx.stroke();
+            }
+            ctx.restore();
+
+            //分钟的刻度
+            ctx.save();
+            for(let i=0;i<60;i++){
+                if(i%5!==0) {
+                    ctx.lineWidth = 4;
+                    ctx.strokeStyle = "Fuchsia";
+                    ctx.beginPath();
+                    ctx.moveTo(170, 0);//画布旋转了90度
+                    ctx.lineTo(180, 0);
+                    ctx.stroke();
+                }
+                ctx.rotate(6 * Math.PI / 180);
+            }
+            ctx.restore();
+
+            //时针，分针，表心---秒针，针头
+
+            //获取当前时间
+            let date = new Date();
+            let second = date.getSeconds();
+            let minute = date.getMinutes() + second/60;
+            let hour  = date.getHours() + minute/60;
+            hour=hour>12?hour-12:hour;//二十四小时制换成12小时制
+
+            //时针
+            ctx.save();
+            ctx.lineWidth = 12;
+            ctx.strokeStyle = "black";
+            ctx.rotate(30*hour*Math.PI/180);
+            ctx.beginPath();
+            ctx.moveTo(-20,0);
+            ctx.lineTo(100,0);
+            ctx.stroke();
+            ctx.restore();
+
+            //分针
+            ctx.save();
+            ctx.lineWidth = 12;
+            ctx.strokeStyle = "blue";
+            ctx.rotate(6*minute*Math.PI/180);
+            ctx.beginPath();
+            ctx.moveTo(-30,0);
+            ctx.lineTo(120,0);
+            ctx.stroke();
+            ctx.restore();
+
+            //秒针
+            ctx.save();
+            ctx.lineWidth = 12;
+            ctx.strokeStyle = "purple";
+            ctx.rotate(6*second*Math.PI/180);
+            ctx.beginPath();
+            ctx.moveTo(-30,0);
+            ctx.lineTo(160,0);
+            ctx.stroke();
+
+
+            //表心
+            ctx.beginPath();
+            ctx.lineWidth = 12;
+            ctx.fillStyle = "red";
+            ctx.arc(0,0,18,0,360*Math.PI/180);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.strokeStyle = "#59149F";
+            ctx.arc(150,0,10,0,360*Math.PI/180);
+            ctx.stroke();
+
+            ctx.restore();
+            ctx.restore();
+        }
+
+    };
+</script>
+</html>
